@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AplikasiCRUD_API</string>
+    <string name="nama_pegawai">Nama Pegawai :</string>
+    <string name="posisi">Posisi :</string>
+    <string name="gaji">Gaji :</string>
+    <string name="daftar_pegawai">Lihat Data Pegawai</string>
+    <string name="tambah_pegawai">Tambah Data Pegawai</string>
+    <string name="ubah_data_pegawai">Ubah Data Pegawai</string>
+    <string name="delete_data_pegawai">Hapus Data Pegawai</string>
+    <string name="id">Id Pegawai</string>
+</resources>
