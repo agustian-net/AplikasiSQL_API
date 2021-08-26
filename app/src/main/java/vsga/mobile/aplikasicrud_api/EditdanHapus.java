@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class EditdanHapus extends AppCompatActivity {
+public class EditdanHapus extends AppCompatActivity implements View.OnClickListener {
     private EditText editTxtId;
     private EditText editTxtName;
     private EditText editTxtPosisi;
@@ -33,11 +33,12 @@ public class EditdanHapus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("DATA PEGAWAI");
         setContentView(R.layout.activity_editdandeletepgw);
 
         Intent intent = getIntent();
 
-        id = intent.getStringExtra(Configuration.EMP_ID);
+        id = intent.getStringExtra(Configuration.KEY_EMP_ID);
 
         editTxtId =  findViewById(R.id.editId);
         editTxtName =  findViewById(R.id.editNamaPgw);
@@ -46,8 +47,8 @@ public class EditdanHapus extends AppCompatActivity {
         btnUbah = findViewById(R.id.btnUbahpgw);
         btnHapus = findViewById(R.id.btnHapuspgw);
 
-        btnUbah.setOnClickListener((View.OnClickListener) this);
-        btnHapus.setOnClickListener((View.OnClickListener) this);
+        btnUbah.setOnClickListener(this);
+        btnHapus.setOnClickListener(this);
 
         editTxtId.setText(id);
 
@@ -159,7 +160,7 @@ public class EditdanHapus extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Configuration.URL_DELETE_EMP, id);
+                String s = rh.sendGetRequestParam(Configuration.URL_DELETE_EMP,id);
                 return s;
             }
         }
@@ -175,7 +176,7 @@ public class EditdanHapus extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Ya",
                 (arg0, arg1) -> {
                     deleteEmployee();
-                    startActivity(new Intent(EditdanHapus.this,LihatSemuaPgw.class));
+                    startActivity(new Intent(EditdanHapus.this, LihatSemuaPgw.class));
                 });
 
         alertDialogBuilder.setNegativeButton("Tidak",

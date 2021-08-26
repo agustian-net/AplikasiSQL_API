@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements onClick, View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("INPUT PEGAWAI ");
         setContentView(R.layout.activity_main);
 
         //inisialisi dari view
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements onClick, View.OnC
         final String posisi = editTxtPosisi.getText().toString().trim();
         final String gaji = editTxtGaji.getText().toString().trim();
 
-        @SuppressLint("StaticFieldLeak")
         class AddEmployee extends AsyncTask<Void,Void,String>{
             ProgressDialog loading;
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements onClick, View.OnC
 
         if(v == btnLihat){
             System.out.println("klik Lihat");
-            startActivity(new Intent(this,LihatSemuaPgw.class));
+            startActivity(new Intent(MainActivity.this, LihatSemuaPgw.class));
         }
     }
 }

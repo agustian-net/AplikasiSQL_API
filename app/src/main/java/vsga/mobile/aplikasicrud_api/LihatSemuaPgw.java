@@ -27,6 +27,7 @@ public class LihatSemuaPgw extends AppCompatActivity implements onItemClick, Ada
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("LIST DAFTAR PEGAWAI");
         setContentView(R.layout.activity_lihatpgw);
         listView = findViewById(R.id.listView);
         listView.setOnItemClickListener(this);
@@ -93,10 +94,10 @@ public class LihatSemuaPgw extends AppCompatActivity implements onItemClick, Ada
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, LihatSemuaPgw.class);
+        Intent intent = new Intent(this, EditdanHapus.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Configuration.TAG_ID).toString();
-        intent.putExtra(Configuration.EMP_ID,empId);
+        intent.putExtra(Configuration.KEY_EMP_ID,empId);
         startActivity(intent);
     }
 }
