@@ -41,7 +41,7 @@ public class RequestHandler {
             //menuliskan param untuk request
             //gunakan method getPostDataString yang didefinisikan
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-            writer.write(postDataParams.get(postDataParams));
+            writer.write(getPostDataString(postDataParams));
 
             writer.flush();
             writer.close();
